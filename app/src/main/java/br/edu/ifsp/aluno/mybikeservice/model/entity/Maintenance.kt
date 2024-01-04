@@ -10,16 +10,17 @@ import kotlinx.parcelize.Parcelize
 @Entity
 data class Maintenance(
     @PrimaryKey
-    var desc:String = "",
-    var initialDate: Long = INVALID_TIME,
-    var partList: String = "" ,
+    var initialDate: String,
+    var desc:String,
+    var partList: String,
     var status: Int = MAINTENANCE_DONE_FALSE,
-    var conclusionDate :Long = INVALID_TIME,
+    var conclusionDate :String,
 ): Parcelable {
     companion object {
-        const val INVALID_TIME = -1L
         const val MAINTENANCE_DONE_TRUE = 1
         const val MAINTENANCE_DONE_FALSE = 0
+        const val STATUS_FINAL = "Finalizado"
+        const val STATUS_WAIT = "Aguardando"
     }
 }
 

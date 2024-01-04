@@ -36,26 +36,29 @@ class MaintenanceFragment : Fragment() {
         val receivedMaintenance = navigationArgs.maintenance
         receivedMaintenance?.also {maintenance ->  
             with(fmb){
-                nameEt.setText(maintenance.initialDate.toString())
+                nameEt.setText(maintenance.initialDate)
                 stausCb.isChecked = maintenance.status == MAINTENANCE_DONE_TRUE
                 navigationArgs.editMaintenance.also { editMaintenance ->
                     nameEt.isEnabled = editMaintenance
-                    stausCb.isEnabled = editMaintenance
+                    stausCb.visibility = if (editMaintenance) VISIBLE else GONE
                     saveBt.visibility = if (editMaintenance) VISIBLE else GONE
                 }
             }
         }
-
         fmb.run { saveBt.setOnClickListener {
             setFragmentResult(MAINTENANCE_FRAGMENT_REQUEST_KEY, Bundle().apply {
                 putParcelable(
                     EXTRA_MAINTENANCE, Maintenance(
                         nameEt.text.toString(),
+                        descEt.text.toString(),
+                        partEt.text.toString(),
+                        conclusionDate = ""
                     )
                 )
             })
             findNavController().navigateUp()
         } }
+
         return fmb.root
     }
 

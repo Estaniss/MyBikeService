@@ -19,7 +19,9 @@ class MaintenanceAdapter (
     inner class MaintenanceTileHolder(tileMaintenanceBinding: TileMaintenanceBinding):
             RecyclerView.ViewHolder(tileMaintenanceBinding.root){
         val nameTv: TextView = tileMaintenanceBinding.nameTv
+        val descTv: TextView = tileMaintenanceBinding.descTv
         val doneCb: CheckBox = tileMaintenanceBinding.doneCb
+        val  statusTV : TextView = tileMaintenanceBinding.statusTv
 
         init {
             tileMaintenanceBinding.apply {
@@ -61,8 +63,10 @@ class MaintenanceAdapter (
     override fun onBindViewHolder(holder: MaintenanceTileHolder, position: Int) {
         maintenanceList[position].let { maintenance ->
             with(holder){
-                nameTv.text = maintenance.initialDate.toString()
+                nameTv.text = maintenance.initialDate
                 doneCb.isChecked= maintenance.status == MAINTENANCE_DONE_TRUE
+                descTv.text= maintenance.desc
+                statusTV.text = if (maintenance.status == MAINTENANCE_DONE_TRUE) Maintenance.STATUS_FINAL else Maintenance.STATUS_WAIT
             }
         }
     }

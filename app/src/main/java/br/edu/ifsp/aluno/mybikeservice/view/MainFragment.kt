@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.edu.ifsp.aluno.mybikeservice.R
+import br.edu.ifsp.aluno.mybikeservice.controller.MainController
 import br.edu.ifsp.aluno.mybikeservice.databinding.FragmentMainBinding
 import br.edu.ifsp.aluno.mybikeservice.model.entity.Maintenance
 import br.edu.ifsp.aluno.mybikeservice.view.adapter.MaintenanceAdapter
@@ -41,6 +42,9 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
         const val MAINTENANCE_FRAGMENT_REQUEST_KEY = "MAINTENANCE_FRAGMENT_REQUEST_KEY"
     }
 
+    private val mainController:MainController by lazy {
+        MainController(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,9 +60,11 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
                 maintenance?.also { receivedMaintenance ->
                     maintenanceList.indexOfFirst { it.initialDate == receivedMaintenance.initialDate }.also { position ->
                         if (position!=-1){
+                            mainController.editMaintenance(receivedMaintenance)
                             maintenanceList[position] = receivedMaintenance
                             maintenanceAdapter.notifyItemChanged(position)
                         }else{
+                            mainController.insertMaintenance(receivedMaintenance)
                             maintenanceList.add(receivedMaintenance)
                             maintenanceAdapter.notifyItemInserted(maintenanceList.lastIndex)
                         }
@@ -72,6 +78,7 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
 
             }
         }
+        mainController.getMaintenance()
     }
 
 
@@ -101,6 +108,7 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
     override fun onMaintenanceClick(position: Int) = navigateToMaintenanceFragment(position,false)
 
     override fun onRemoveMaintenanceMenuItemClick(position: Int) {
+        mainController.removeMaintenance(maintenanceList[position])
         maintenanceList.removeAt(position)
         maintenanceAdapter.notifyItemRemoved(position)
     }
@@ -110,10 +118,9 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
     override fun onDoneCheckBoxClick(position: Int, checked: Boolean) {
       maintenanceList[position].apply {
           status = if (checked) Maintenance.MAINTENANCE_DONE_TRUE else Maintenance.MAINTENANCE_DONE_FALSE
+          mainController.editMaintenance(this)
       }
     }
-
-
 
     private fun navigateToMaintenanceFragment(position: Int, editTask: Boolean) {
         maintenanceList[position].also {
@@ -122,4 +129,13 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
             )
         }
     }
+
+    fun  updateMaintenanceList(maintenances :List<Maintenance>){
+        maintenanceList.clear()
+        maintenances.forEachIndexed { index, maintenance ->
+            maintenanceList.add(maintenance)
+            maintenanceAdapter.notifyItemChanged(index)
+        }
+    }
+
 }

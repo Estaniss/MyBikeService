@@ -7,4 +7,9 @@
     <string name="remove">Deletar</string>
     <string name="maintenance_list">Lista de Manutenções</string>
     <string name="details">Detalhes da Manutenção</string>
+    <string name="part_list">Ir para a tela de peças"</string>
+    <string name="initialDate">Data Inicial</string>
+    <string name="partList">Peças</string>
+    <string name="desc">Descrição</string>
+    <string name="status">Status</string>
 </resources>
