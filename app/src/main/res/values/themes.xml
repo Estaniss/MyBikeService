@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.MyBikeService" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Base.Theme.MyBikeService" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+    <style name="Theme.MyBikeService" parent="Base.Theme.MyBikeService">
+    </style>
 </resources>
