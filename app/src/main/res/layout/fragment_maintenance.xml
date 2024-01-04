@@ -10,22 +10,57 @@
         android:id="@+id/nameEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/concluded"
-        android:autofillHints="name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/initialDate"
+        android:inputType="date"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/descEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEt"
+        android:hint="@string/desc"
         android:inputType="text"
         tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/partEt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descEt"
+        android:hint="@string/partList"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
 
     <CheckBox
         android:id="@+id/stausCb"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="@string/concluded"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHighlight="@color/ultra_violet"
+        android:textColorLink="@color/ultra_violet"
+        android:textCursorDrawable="@color/ultra_violet"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEt" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partEt" />
+
+    <TextView
+        android:id="@+id/statusTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/partEt"
+        />
 
     <Button
         android:id="@+id/saveBt"
@@ -35,6 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/stausCb" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
