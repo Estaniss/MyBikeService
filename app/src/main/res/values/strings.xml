@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyBikeService</string>
+    <string name="new_maintenance">Nova Manutenção</string>
+    <string name="concluded">Concluído</string>
+    <string name="save">Salvar</string>
+    <string name="edit">Editar</string>
+    <string name="remove">Deletar</string>
+    <string name="maintenance_list">Lista de Manutenções</string>
+    <string name="details">Detalhes da Manutenção</string>
 </resources>
