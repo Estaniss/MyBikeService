@@ -97,6 +97,11 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
                     MainFragmentDirections.actionMainFragmentToMaintenanceFragment(null,editMaintenance = false)
                 )
             }
+            goToParts.setOnClickListener {
+                navController.navigate(
+                    MainFragmentDirections.actionMainFragmentToMainPartsFragment()
+                )
+            }
 
         }
     return fmb.root
@@ -122,10 +127,10 @@ class MainFragment : Fragment() , OnMaintenanceClickListener{
       }
     }
 
-    private fun navigateToMaintenanceFragment(position: Int, editTask: Boolean) {
+    private fun navigateToMaintenanceFragment(position: Int, editMain: Boolean) {
         maintenanceList[position].also {
             navController.navigate(
-                MainFragmentDirections.actionMainFragmentToMaintenanceFragment(it, editTask)
+                MainFragmentDirections.actionMainFragmentToMaintenanceFragment(it, editMain)
             )
         }
     }

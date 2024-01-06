@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_maintenanceFragment"
             app:destination="@id/maintenanceFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mainPartsFragment"
+            app:destination="@id/mainPartsFragment" />
     </fragment>
     <fragment
         android:id="@+id/maintenanceFragment"
@@ -29,4 +32,22 @@
             app:argType="boolean"
             android:defaultValue="false" />
     </fragment>
+
+    <fragment
+        android:id="@+id/mainPartsFragment"
+        android:name="br.edu.ifsp.aluno.mybikeservice.view.MainPartsFragment"
+        android:label="fragment_main_parts"
+        tools:layout="@layout/fragment_main_parts" >
+        <argument
+            android:name="part"
+            app:argType="br.edu.ifsp.aluno.mybikeservice.model.entity.Parts"
+            android:defaultValue="@null"
+            app:nullable="true" />
+        <argument
+            android:name="editParts"
+            app:argType="boolean"
+            android:defaultValue="false" />
+
+    </fragment>
+
 </navigation>

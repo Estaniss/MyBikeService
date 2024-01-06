@@ -11,7 +11,9 @@ import br.edu.ifsp.aluno.mybikeservice.model.entity.Maintenance
 interface MaintenanceDao {
     companion object {
         const val MAINTENANCE_LIST = "maintenance"
+        const val PARTS_LIST = "parts"
     }
+
     @Insert
     fun createMaintenance(maintenance: Maintenance)
     @Query("SELECT * FROM $MAINTENANCE_LIST")
