@@ -12,4 +12,11 @@
     <string name="partList">Peças</string>
     <string name="desc">Descrição</string>
     <string name="status">Status</string>
+    <string name="new_part">Nova Peça</string>
+    <string name="numer_serie">Número de Série</string>
+    <string name="desc_part">Descrição</string>
+    <string name="model_part">Modelo</string>
+    <string name="manufacturer_part">Fabricante</string>
+    <string name="register_part">Data de Registro</string>
+    <string name="retire">Aposentar</string>
 </resources>

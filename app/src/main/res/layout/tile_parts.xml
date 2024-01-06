@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/back"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_margin="8dp"
+    >
+
+    <TextView
+        android:id="@+id/numberSerieTv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/numer_serie"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/descPartTv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/desc_part"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberSerieTv"
+        />
+    <TextView
+        android:id="@+id/modelPartsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/model_part"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descPartTv"
+        />
+        <TextView
+        android:id="@+id/manufacturerPartTv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/manufacturer_part"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/modelPartsTv"
+        />
+    <TextView
+        android:id="@+id/dataRegisterPartTv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/register_part"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/manufacturerPartTv"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
